@@ -1,2 +1,1 @@
-event_dispatcher
-================
+Event Driven Architecture for Rails

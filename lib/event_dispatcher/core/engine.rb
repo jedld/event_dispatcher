@@ -25,7 +25,7 @@ module EventDispatcher::Core
     def self.get_events_listened_to
       events = []
       #get events listened to by triggers
-      [EventDispatcher::EventRuleBase, EventDispatcher::Trigger].each do |k|
+      [EventDispatcher::Core::EventRuleBase, EventDispatcher::Core::Trigger].each do |k|
         k.descendants.each do |klass|
           klass_events = klass.send(:event_list)
           events+=klass_events.flatten if klass_events
@@ -51,7 +51,7 @@ module EventDispatcher::Core
           rules << db_rule.name if db_rule
         }
 
-        EventDispatcher::EventRuleBase.descendants.each do |k|
+        EventDispatcher::Core::EventRuleBase.descendants.each do |k|
           rules << k.to_s if k.trigger_test([event])
         end
         triggered_rules << {event: event, rules: rules}

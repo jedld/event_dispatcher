@@ -11,6 +11,7 @@ require "event_dispatcher/core/resque_backend"
 require "event_dispatcher/core/trigger"
 
 module EventDispatcher
+
   if defined?(Rails)
     require 'rails/generators'
     require "event_dispatcher/core/engine"
@@ -19,5 +20,10 @@ module EventDispatcher
     require "event_dispatcher/generators/trigger/trigger_generator"
   end
 
+  class EventDispatcherTasks < Rails::Railtie
+    rake_tasks do
+      Dir[File.join(File.dirname(__FILE__), 'tasks/*.rake')].each { |f| load f }
+    end
+  end
 
 end
