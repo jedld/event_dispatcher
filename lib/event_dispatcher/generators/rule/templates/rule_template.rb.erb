@@ -1,0 +1,16 @@
+#This file was automatically generated
+module EventRules
+  class <%= @class_name %> < EventDispatcher::Core::EventRuleBase
+
+    ENTITY_TYPE = <%= @next_type %>
+
+    <% if @listens_to.size > 0  %>
+    listens_to <%= @listens_to_str %>
+    <% end %>
+
+    def perform(actor, subject, extras = {})
+      # Place the stuff that your rule does here
+    end
+
+  end
+end

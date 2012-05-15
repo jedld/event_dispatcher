@@ -1,0 +1,8 @@
+Description:
+    Create a rule
+
+Example:
+    rails generate rule Thing
+
+    This will create:
+        rules and rule tests

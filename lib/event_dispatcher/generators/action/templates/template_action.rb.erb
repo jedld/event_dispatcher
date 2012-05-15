@@ -1,0 +1,18 @@
+module EventActions
+  class <%= @class_name %> < EventDispatcher::Core::EventAction
+
+    ENTITY_TYPE = <%= @next_type %>
+
+    action_name "<%= @action_name %>"
+    description "<%= @action_description%>"
+
+    <% @parameters_array.each do |p|%>
+    has_parameter :<%= p %>
+    <% end %>
+
+    def perform
+      #put stuff your action does here
+    end
+
+  end
+end

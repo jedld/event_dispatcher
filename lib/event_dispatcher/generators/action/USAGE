@@ -1,0 +1,8 @@
+Description:
+    Creates an Event Action
+
+Example:
+    rails generate action reward_user_action
+
+    This will create:
+        app/models/event_actions/reward_user_action.rb

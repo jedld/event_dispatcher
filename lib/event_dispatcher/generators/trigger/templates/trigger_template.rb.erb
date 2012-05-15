@@ -1,0 +1,19 @@
+module EventTriggers
+  class <%= @class_name %> < EventDispatcher::Core::Trigger
+
+    ENTITY_TYPE = <%= @next_type %>
+
+    trigger_name "<%= @trigger_name %>"
+    description "<%= @trigger_description %>"
+
+    <% if @listens_to.size > 0  %>
+    listens_to <%= @listens_to_str %>
+    <% end %>
+
+    def conditions_met?
+      #put stuff to evaluate here and return true if it satisfies the conditions
+      true
+    end
+
+  end
+end

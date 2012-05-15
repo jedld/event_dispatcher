@@ -1,0 +1,13 @@
+require 'spec_helper'
+
+describe EventTriggers::<%= @class_name%> do
+  let(:actor) {}
+  let(:subject) {}
+  let(:trigger) {EventTriggers::<%= @class_name%>.new({}, actor, subject)}
+
+  it "performs action" do
+    trigger.conditions_met?
+    pending "add test here #{__FILE__}"
+  end
+
+end

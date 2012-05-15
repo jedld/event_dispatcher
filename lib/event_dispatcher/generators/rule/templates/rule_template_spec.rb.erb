@@ -1,0 +1,22 @@
+require 'spec_helper'
+
+describe EventRules::<%= @class_name %> do
+
+  before do
+    #disable other triggers
+    stub(EventDispatcher::Core::Backend).get_built_in_rules.returns { {""=>EventRules::<%= @class_name %>.new} }
+    stub(EventDispatcher::Core::Backend).get_active_rules(anything, anything).returns({})
+  end
+
+  def fire_event
+    #EventDispatcher::Engine.fire([:test], avatar, app)
+  end
+
+  it "#perform" do
+    fire_event
+    pending "add test here #{__FILE__}"
+  end
+
+  it_should_behave_like "events"
+
+end
