@@ -27,7 +27,7 @@ module EventDispatcher
     ActiveSupport.on_load(:active_record) do
       include EventDispatcher::Core::EventDispatcherHelper
     end
-    
+
   end
 
   class EventDispatcherTasks < Rails::Railtie

@@ -6,7 +6,7 @@ module EventDispatcher::Core
     def initialize
       self.disable_all = false
       self.event_log = false
-      self.logger_backend = EventDispatcher::MemcacheEventLog
+      self.logger_backend = EventDispatcher::Core::MemcacheEventLog
       @enabled_rules = []
       @disabled_rules = []
     end

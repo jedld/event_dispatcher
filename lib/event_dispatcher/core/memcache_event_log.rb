@@ -10,7 +10,7 @@ module EventDispatcher::Core
     end
 
     def logger(name)
-        EventDispatcher::MemcacheEventLog.new(session_id, "#{namespace} > #{name}")
+        EventDispatcher::Core::MemcacheEventLog.new(session_id, "#{namespace} > #{name}")
     end
 
     def log(body_str)
