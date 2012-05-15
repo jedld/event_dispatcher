@@ -1,4 +1,4 @@
-class EventDispatcher::Core::RuleParameter < ActiveRecord::Base
+class EventDispatcher::Models::RuleParameter < ActiveRecord::Base
 
   set_table_name "ed_rule_parameters"
 

@@ -1,4 +1,4 @@
-class EventDispatcher::Core::RuleTrigger < ActiveRecord::Base
+class EventDispatcher::Models::RuleTrigger < ActiveRecord::Base
 
   set_table_name "ed_rule_triggers"
 

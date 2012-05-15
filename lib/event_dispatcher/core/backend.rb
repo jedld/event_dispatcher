@@ -4,6 +4,9 @@ module EventDispatcher::Core
 
     class << self
       def dispatch(events, actor, subject, extras = {})
+        if Rails.env.development?
+          EventDispatcher::Core::Engine.force_load_classes
+        end
         # load all rules that have the associated trigger
         klass_trigger = {}
 
@@ -44,12 +47,12 @@ module EventDispatcher::Core
       def get_built_in_rules(logger = nil)
         rules = {}
         if (@config && @config.disable_all)
-          EventDispatcher::EventRuleBase.subclasses.each do |klass|
+          EventDispatcher::Core::EventRuleBase.subclasses.each do |klass|
             new_logger = logger.logger("#{klass.to_s} > ") if logger
             rules[klass.to_s] = klass.new(new_logger) if in_enabled_list?(klass)
           end
         else
-          EventDispatcher::EventRuleBase.subclasses.each do |klass|
+          EventDispatcher::Core::EventRuleBase.subclasses.each do |klass|
             new_logger = logger.logger("#{klass.to_s} > ") if logger
             rules[klass.to_s] = klass.new(new_logger) unless in_disabled_list?(klass)
           end
@@ -85,7 +88,7 @@ module EventDispatcher::Core
 
 
       def get_active_rules(klass_trigger, rules, logger = nil)
-        rule_triggers = RuleTrigger.where(trigger_type: klass_trigger.keys)
+        rule_triggers = EventDispatcher::Models::RuleTrigger.where(trigger_type: klass_trigger.keys)
 
         rule_triggers.each do |t|
           rules[t.rule.id] = t.rule if t.rule.enabled?
@@ -96,7 +99,7 @@ module EventDispatcher::Core
 
       def get_applicable_triggers(events)
         applicable_triggers = []
-        EventDispatcher::Trigger.subclasses.each do |klass|
+        EventDispatcher::Core::Trigger.subclasses.each do |klass|
           applicable_triggers << klass if klass.responds_to_events? events
         end
 

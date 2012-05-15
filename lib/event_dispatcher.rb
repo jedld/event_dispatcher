@@ -12,6 +12,10 @@ require "event_dispatcher/core/trigger"
 
 module EventDispatcher
 
+  module Models
+
+  end
+
   if defined?(Rails)
     require 'rails/generators'
     require "event_dispatcher/core/engine"
@@ -19,6 +23,10 @@ module EventDispatcher
     require "event_dispatcher/generators/rule/rule_generator"
     require "event_dispatcher/generators/trigger/trigger_generator"
     require "event_dispatcher/generators/install/install_generator"
+    require "event_dispatcher/models/rule"
+    require "event_dispatcher/models/rule_action"
+    require "event_dispatcher/models/rule_parameter"
+    require "event_dispatcher/models/rule_trigger"
 
 
     ActiveSupport.on_load(:action_controller) do
@@ -37,7 +45,5 @@ module EventDispatcher
       Dir[File.join(File.dirname(__FILE__), 'tasks/*.rake')].each { |f| load f }
     end
   end
-
-
 
 end
