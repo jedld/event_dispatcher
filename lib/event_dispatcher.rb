@@ -20,8 +20,10 @@ module EventDispatcher
     require "event_dispatcher/generators/trigger/trigger_generator"
     require "event_dispatcher/generators/install/install_generator"
 
+
     ActiveSupport.on_load(:action_controller) do
       include EventDispatcher::Core::EventDispatcherHelper
+      require "event_dispatcher/controllers/event_log_controller"
     end
 
     ActiveSupport.on_load(:active_record) do

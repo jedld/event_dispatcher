@@ -72,13 +72,13 @@ module EventDispatcher::Core
 
     def self.force_load_classes
       #WORK AROUND for the development environment we need to require to force eager loading since cache_classes=false
-#      {"/lib/event_rules/*.rb"=>'EventRules', "/lib/event_actions/*.rb"=>'EventActions', "/lib/event_triggers/*.rb"=>'EventTriggers'}.each do |path, module_name|
-#        Dir[Rails.root.to_s + path].each do |file|
-#          klass_name = File.basename(file, ".rb")
-#          klass = "#{module_name}::#{klass_name.camelize}".constantize
-#          Rails.logger.error("force eager load #{klass.to_s}")
-#        end
-#      end unless Rails.application.config.cache_classes
+      {"/app/models/event_rules/*.rb"=>'EventRules', "/app/models/event_actions/*.rb"=>'EventActions', "/app/models/event_triggers/*.rb"=>'EventTriggers'}.each do |path, module_name|
+        Dir[Rails.root.to_s + path].each do |file|
+          klass_name = File.basename(file, ".rb")
+          klass = "#{module_name}::#{klass_name.camelize}".constantize
+          Rails.logger.error("force eager load #{klass.to_s}")
+        end
+      end unless Rails.application.config.cache_classes
     end
 
     def self.config(&block)
