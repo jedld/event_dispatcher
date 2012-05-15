@@ -1,5 +1,7 @@
 class EventDispatcher::Core::RuleTrigger < ActiveRecord::Base
 
+  set_table_name "ed_rule_triggers"
+
   belongs_to :rule, :inverse_of => :rule_triggers
   has_many :trigger_parameters, :as=>:entity
   validates_presence_of :rule

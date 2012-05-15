@@ -1,4 +1,4 @@
-class ActionGenerator < Rails::Generators::NamedBase
+class EventDispatcher::ActionGenerator < Rails::Generators::NamedBase
   source_root File.expand_path('../templates', __FILE__)
   argument :parameters, :type => :string, :default=>nil, :required=>false
   class_option :action_name, :type => :string, :default =>"Name of action here", :description => "Specify the name of the action"

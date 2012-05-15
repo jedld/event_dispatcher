@@ -1,4 +1,4 @@
-class TriggerGenerator < Rails::Generators::NamedBase
+class EventDispatcher::TriggerGenerator < Rails::Generators::NamedBase
   source_root File.expand_path('../templates', __FILE__)
   argument :events, :type => :string, :default=>nil, :required=>false
   class_option :trigger_name, :type => :string, :default =>"Name of action here", :description => "Specify the name of the action"

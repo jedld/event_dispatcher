@@ -1,5 +1,7 @@
 class EventDispatcher::Core::Rule < ActiveRecord::Base
 
+  set_table_name "ed_rules"
+
   has_many :rule_triggers, :class_name => "EventDispatcher::Core::RuleTrigger", :inverse_of => :rule
   has_many :rule_actions, :class_name => "EventDispatcher::Core::RuleAction", :inverse_of => :rule
   has_many :rule_parameters, :class_name => "EventDispatcher::Core::RuleParameter", :as=>:entity

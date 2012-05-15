@@ -1,4 +1,4 @@
-class RuleGenerator < Rails::Generators::NamedBase
+class EventDispatcher::RuleGenerator < Rails::Generators::NamedBase
   source_root File.expand_path('../templates', __FILE__)
   argument :events, :type => :string, :default=>nil, :required=>false
 

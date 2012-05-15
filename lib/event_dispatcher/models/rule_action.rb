@@ -1,5 +1,7 @@
 class EventDispatcher::Core::RuleAction < ActiveRecord::Base
 
+  set_table_name "ed_rule_actions"
+
   belongs_to :rule, :inverse_of => :rule_actions
   has_many :action_parameters, :as => :entity
   validates_presence_of :rule_id

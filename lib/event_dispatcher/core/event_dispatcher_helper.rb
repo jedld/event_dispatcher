@@ -5,12 +5,12 @@ module EventDispatcher::Core::EventDispatcherHelper
   def fire_event(event, actor = nil, subject = nil, options = {})
     session_id = get_logger_session_id
     options[:session_id] = session_id if session_id
-    EventDispatcher::Engine.fire(event, actor, subject, options)
+    EventDispatcher::Core::Engine.fire(event, actor, subject, options)
   end
 
   def event_logger
     session_id = get_logger_session_id
-    EventDispatcher::Engine.dispatch_backend.config.logger_backend.new(session_id) if session_id &&  EventDispatcher::Engine.dispatch_backend.config
+    EventDispatcher::Core::Engine.dispatch_backend.config.logger_backend.new(session_id) if session_id &&  EventDispatcher::Core::Engine.dispatch_backend.config
   end
 
   private
