@@ -52,6 +52,10 @@ rails g event_dispatcher:install
 rake db:migrate
 ````````````````````````````````````````````````````````````````````````````````````
 
+This will create the event_dispatcher.rb config file in config/initializers as well
+as generate and execute the required migrations.
+
+
 Generators
 ===============
 
@@ -102,7 +106,6 @@ module EventRules
 end
 ````````````````````````````````````````````````````````````````````````````````````
 
-
 Add code to your payload (things to do in the perform block)
 
 ````````````````````````````````````````````````````````````````````````````````````
@@ -120,7 +123,10 @@ def login_action
 end
 ````````````````````````````````````````````````````````````````````````````````````
 
-That's it! The are a lot more to Rules this the example above is the simplest to execute.
+That's it! The are a lot more to Rules than this, you can also define parameters and reuse other actions/triggers.
+
+Query Defined Rules
+-------------------
 
 If you want to have a convenient list of rules there is a handy rake task for that
 
@@ -158,12 +164,12 @@ def perform(actor, subject, extras = {})
 end
 ````````````````````````````````````````````````````````````````````````````````````
 
-Note also that Triggers and Actions also support this.
+Like Rules, parameters can also be defined within Triggers and Actions.
 
 Creating Triggers and Actions
 =================================
 
-While Rules can already contain both the triggers and actions, you can also define standalone Triggers and Actions.
+While Rules can already contain both the triggers and actions, you can also define "standalone" Triggers and Actions.
 Defining them separately allows other rules to reuse the same trigger and action (DRY), also it allows these
 Triggers and Actions to be used by "runtime defined" rules.
 
