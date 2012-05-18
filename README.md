@@ -103,7 +103,7 @@ end
 ````````````````````````````````````````````````````````````````````````````````````
 
 
-Please your payload (things to do in the perform block)
+Add code to your payload (things to do in the perform block)
 
 ````````````````````````````````````````````````````````````````````````````````````
 def perform(actor, subject, extras = {})
