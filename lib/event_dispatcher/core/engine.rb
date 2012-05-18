@@ -25,6 +25,7 @@ module EventDispatcher::Core
     def self.get_events_listened_to
       events = []
       #get events listened to by triggers
+      force_load_classes
       [EventDispatcher::Core::EventRuleBase, EventDispatcher::Core::Trigger].each do |k|
         k.descendants.each do |klass|
           klass_events = klass.send(:event_list)

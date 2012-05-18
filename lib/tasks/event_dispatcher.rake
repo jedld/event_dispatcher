@@ -2,6 +2,7 @@ begin
   desc "Lists all parameters in each rule"
   namespace :event_dispatcher do
     task :list=>:environment do
+      puts "Events:"
       EventDispatcher::Core::Engine.get_rules_by_events(EventDispatcher::Core::Engine.get_events_listened_to).each do |event_detail|
         puts "-------------------------------"
         puts "#{event_detail[:event]}:"
@@ -18,6 +19,7 @@ begin
       task :sql=>:environment do # checks for missing keys in all locale files
         insert_statements = []
         delete_statements = []
+        force_load_classes
         EventDispatcher::Core::EventRuleBase.descendants.each do |klass|
           entity_type = klass::ENTITY_TYPE
           klass.parameters.each do |p|
