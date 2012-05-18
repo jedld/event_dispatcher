@@ -39,13 +39,13 @@ Rules - Rules are simply objects that link triggers and actions together. They u
 Installing the event_dispatcher GEM
 ===================================
 
-1. Include the following line in your Gemfile and then run bundle
+Include the following line in your Gemfile and then run bundle
 
 ````````````````````````````````````````````````````````````````````````````````````
 gem 'event_dispatcher'
 ````````````````````````````````````````````````````````````````````````````````````
 
-2. Run the installation script
+Run the installation script
 
 ````````````````````````````````````````````````````````````````````````````````````
 rails g event_dispatcher:install
@@ -211,7 +211,7 @@ end
 you can then reuse this in your Rule by:
 
 ````````````````````````````````````````````````````````````````````````````````````
-use_trigger :rate_throttle_trigger
+use_trigger :user_has_logged_in_x_times
 ````````````````````````````````````````````````````````````````````````````````````
 
 So:
@@ -222,7 +222,7 @@ module EventRules
 
     ENTITY_TYPE = 1
 
-    use_trigger :rate_throttle_trigger
+    use_trigger :user_has_logged_in_x_times
 
     def perform(actor, subject, extras = {})
       # Place the stuff that your rule does here
