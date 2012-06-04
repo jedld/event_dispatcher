@@ -6,10 +6,10 @@ Gem::Specification.new do |s|
   s.name        = "event_dispatcher"
   s.version     = EventDispatcher::VERSION
   s.authors     = ["Joseph Dayo"]
-  s.email       = ["pair+mfamaranglas@friendster.com"]
+  s.email       = ["jdayo@friendster.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{TODO: Event Driven Framework for Rails}
+  s.description = %q{TODO: Event Driven Framework for Rails}
 
   s.rubyforge_project = "event_dispatcher"
 
