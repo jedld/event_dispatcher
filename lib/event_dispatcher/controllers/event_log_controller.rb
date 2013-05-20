@@ -1,4 +1,4 @@
-class EventDispatcher::EventLogController < ApplicationController
+class EventDispatcher::EventLogController < ActionController::Base
 
   layout false
 

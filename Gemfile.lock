@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    event_dispatcher (0.0.1)
+    event_dispatcher (0.0.3)
 
 GEM
   remote: http://rubygems.org/

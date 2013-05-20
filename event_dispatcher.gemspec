@@ -5,7 +5,7 @@ require "event_dispatcher/version"
 Gem::Specification.new do |s|
   s.name        = "event_dispatcher"
   s.version     = EventDispatcher::VERSION
-  s.authors     = ["Joseph Dayo"]
+  s.authors     = ["Joseph Emmanuel Dayo"]
   s.email       = ["jdayo@friendster.com"]
   s.homepage    = ""
   s.summary     = %q{Event Driven Framework for Rails}
