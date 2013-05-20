@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Joseph Dayo"]
   s.email       = ["jdayo@friendster.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Event Driven Framework for Rails}
-  s.description = %q{TODO: Event Driven Framework for Rails}
+  s.summary     = %q{Event Driven Framework for Rails}
+  s.description = %q{Event Driven Framework for Rails}
 
   s.rubyforge_project = "event_dispatcher"
 
