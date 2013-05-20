@@ -1,6 +1,6 @@
 class EventDispatcher::Models::RuleParameter < ActiveRecord::Base
 
-  set_table_name "ed_rule_parameters"
+  self.table_name =  "ed_rule_parameters"
 
   default_scope where('entity_id IS NOT NULL')
   belongs_to :entity, :polymorphic=>true

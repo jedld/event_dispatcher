@@ -1,6 +1,6 @@
 class EventDispatcher::Models::RuleTrigger < ActiveRecord::Base
 
-  set_table_name "ed_rule_triggers"
+  self.table_name = "ed_rule_triggers"
 
   belongs_to :rule, :inverse_of => :rule_triggers
   has_many :trigger_parameters, :as=>:entity
